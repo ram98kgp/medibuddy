@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  hr
+  .item-view.container-fluid.row.text-center
+    .item-view-image.col-sm-6.col-xs-12
+      img(src=item.imageUrl,style='width:80%;')
+    .item-view-head.col-sm-6.col-xs-12
+      table.table
+        thead
+          tr
+            th
+              h3
+                center
+                  b #{item.itemName}
+        tbody
+          tr
+            td Brand - #{item.itemBrand}
+          tr
+            td Stock Count - #{item.stockCount}
+          //- tr
+          //-   td Manufacturer - #{item.manufacturer}
+          //- tr
+          //-   td Seller - #{item.deliveredBy}
+          tr
+            td Net Price - Rs. #{item.netPrice}
+          tr
+            td Price without Discount - Rs. #{item.price}
+          tr
+            td Discount - #{item.discount}% OFF
+      form.form-horizontal.login-form(method='post',action='http://localhost:3000/orders/add')
+          .form-group
+            label.control-label.col-sm-2.col-sm-offset-3(for='quantity') Quantity:
+            .col-sm-2
+              input#quantity.form-control(type='number', placeholder='1', name='quantity',required=true)
+          //- .form-group
+          //-   label.control-label.col-sm-2.col-sm-offset-3(for='quantity') Delivery Type:
+          //-   .col-sm-2
+          //-     input#deliveryType.form-control(type='text', placeholder='COD', name='deliveryType',required=true)
+          //- .form-group
+          //-   label.control-label.col-sm-2.col-sm-offset-3(for='isGift') Wrap as a Gift?:
+          //-   .col-sm-2
+          //-     input#isGift.form-control(type='checkbox', placeholder='Yes/No', name='isGift')
+          .form-group.submit
+            .col-sm-offset-4.col-sm-4
+            if item.stockCount == 0
+                p Can't Add to cart.
+            else
+                button.btn.btn-primary.btn-lg.btn-create-item(type='submit') Add to Cart

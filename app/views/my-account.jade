@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  hr
+  #item-main-div.row.text-center
+  #item-main-div.row.text-center
+    img.person(src='https://vignette.wikia.nocookie.net/mafiagame/images/2/23/Unknown_Person.png/revision/latest?cb=20151119092211')
+  #item-main-div-detail.col-xs-offset-0.col-sm-offset-3.col-xs-12.col-sm-6.text-center
+    table.table
+      thead
+        tr
+          th
+            h3
+              center
+                b #{user.userName}               
+      tbody
+        tr
+          td First Name - #{user.firstName}
+        tr
+          td Last Name - #{user.lastName}
+        tr
+          td Email - #{user.email}
+        tr
+          td Mobile - #{user.mobileNumber}
+        tr
+          td Postal Code - #{user.billingAddress} 
+
+
+ 

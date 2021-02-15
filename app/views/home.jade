@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  hr
+  if items == ''
+    #item-null-div.text-center
+       h1 No items
+  else
+    #item-main-div.row
+       for item in items
+         a(href='http://localhost:3000/item/' + item._id + '/view')
+          #item-single-div.col-lg-3.col-md-3.col-sm-4.col-xs-6.text-center
+             img(src=item.imageUrl, width='256px', height='256px')
+             h3
+               b #{item.itemName}
+
+             h4
+               b Rs.#{item.netPrice}
+             h5
+               b Stock Count : #{item.stockCount}
+              if item.stockCount <=10 && item.stockCount >0
+                p Low on Stock : Buy before it stocks Out!
+              if item.stockCount == 0
+                p Stocked Out! Check back later!

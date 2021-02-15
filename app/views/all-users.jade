@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  hr
+  if users == ''
+   #item-null-div.text-center
+      h1 No registered users
+  else
+   #item-main-div.row
+      for user in users
+       #item-single-div.col-lg-3.col-md-3.col-sm-4.col-xs-6.text-center    
+          h3
+            b #{user.firstName} #{user.lastName}     
+          p
+            b #{user.email}
+          form(method='post', action='http://localhost:3000/users/' + user._id + '/delete')
+            button.btn.btn-default(type='submit') Delete User
+
+
+
+          
+
+ 

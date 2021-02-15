@@ -1,0 +1,49 @@
+extends layout
+
+block content 
+  hr
+  #item-main-div.row.text-center
+    h4 
+      b #{orders.length} items in your Cart!
+    if orders == null
+       h2 No items
+    else
+      for order in orders
+       #item-main-div.row.text-center
+         hr
+         #item-single-div.col-xs-12.col-sm-3
+            img(src=order.imageUrl, width='100%')
+         #item-single-div.col-xs-12.col-sm-5    
+            table.table
+              thead
+                tr
+                  th
+                    h3
+                      center
+                        b #{order.itemName}           
+              tbody
+                tr
+                  td Quantity - #{order.quantity}
+                tr
+                  td Brand - #{order.itemBrand}
+                //- tr
+                //-   td Manufacturer - #{order.manufacturer}
+                tr
+                  td Description - #{order.itemDescription}
+         #item-single-div.col-xs-12.col-sm-4   
+            h3
+              b Price - Rs.#{order.totalPrice}
+            form.form-horizontal.login-form(method='post',action='http://localhost:3000/orders/'+order._id+'/delete')
+              .form-group.submit
+                .col-sm-offset-4.col-sm-4
+                  button.btn.btn-danger.btn-delete-item.btn-lg(type='submit') Delete Order
+                  .form-group.submit
+            form.form-horizontal.login-form(method='post',action='http://localhost:3000/orders/'+order._id+'/buy')
+              .form-group.submit
+                .col-sm-offset-4.col-sm-4
+                  button.btn.btn-danger.btn-delete-item.btn-lg(type='submit') Buy Item
+                  .form-group.submit
+
+
+
+      

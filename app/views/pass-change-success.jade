@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    link(rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Droid+Sans")
+    style
+      include MediBuddy.css
+  nav#nav1.navbar.navbar-default.firstNavbar
+    .container-fluid.text-center
+      // Brand and toggle get grouped for better mobile display
+      .navbar-header.firstNavbarHeader
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='http://localhost:3000')
+          b MediBuddy.com
+      // Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse.firstNavbarCollapse
+      // /.navbar-collapse
+    // /.container-fluid
+  body
+    hr
+    .container-fluid.row.text-center.main-login
+      .login.text-center.col-xs-12.col-lg-6
+        .login-heading
+          h2 Password Changed
+          a.btn.btn-primary(href='http://localhost:3000/users/login/screen') Go to Login
+          h2 #{error}
+
+
+    

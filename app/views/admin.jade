@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  hr
+  .manage-products.text-center
+    h4
+      b
+        a(href='http://localhost:3000/users/all')
+          i.fa.fa-plus(aria-hidden='true')
+          | Click here to Manage all users
+    h4
+      b
+        a(href='http://localhost:3000/item/create/screen')
+          i.fa.fa-plus(aria-hidden='true')
+          | Click here to add some items!
+    h4
+      b Manage available items!
+    hr
+  if items == ''
+    #item-null-div.text-center
+       h1 No items
+  else
+    #item-main-div.row
+       for item in items
+        #item-single-div.col-lg-3.col-md-3.col-sm-4.col-xs-6.text-center
+           img(src=item.imageUrl, width='256px', height='256px')      
+           h3
+             b #{item.itemName}
+           #item-single-div.col-sm-6.text-center  
+             form.login-form(method='get',action='http://localhost:3000/item/' + item._id + '/edit/screen')
+               .form-group.submit
+                .col-sm-2
+                  button.btn.btn-danger.btn-delete-item(type='submit') Edit Item
+           #item-single-div.col-sm-6.text-center 
+             form.login-form(method='post',action='http://localhost:3000/item/'+item._id+'/delete')
+               .form-group.submit
+                .col-sm-2
+                  button.btn.btn-danger.btn-delete-item(type='submit') Delete Item
+
+

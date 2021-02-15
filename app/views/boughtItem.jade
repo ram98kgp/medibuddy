@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  hr
+  #item-main-div.row.text-center
+    h4 
+      b #{orders.length} items that you have bought!
+    if orders == null
+       h2 No items
+    else
+      for order in orders
+       #item-main-div.row.text-center
+         hr
+         #item-single-div.col-xs-12.col-sm-3
+            img(src=order.imageUrl, width='100%')
+         #item-single-div.col-xs-12.col-sm-5    
+            table.table
+              thead
+                tr
+                  th
+                    h3
+                      center
+                        b #{order.itemName}               
+              tbody
+                tr
+                  td Quantity - #{order.quantity}
+                tr
+                  td Brand - #{order.itemBrand}
+                tr
+                  td Manufacturer - #{order.manufacturer}
+                tr
+                  td Description - #{order.itemDescription}
+         #item-single-div.col-xs-12.col-sm-4   
+            h3
+              b Price - Rs.#{order.totalPrice}
+            
+
+
+
+      

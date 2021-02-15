@@ -1,0 +1,64 @@
+extends layout
+
+
+block content
+  hr
+  section.container
+    .edit-item
+      h2
+        b  Fill up the fields below to Edit an Item 
+      form.form-horizontal.login-form(method='post',action='http://localhost:3000/item/'+item._id+'/edit')
+        .form-group
+          label.control-label.col-sm-2(for='itemName') Name(*) :
+          .col-sm-8
+            input#itemName.form-control(type='text', value=item.itemName, name='itemName',required=true)
+        .form-group
+          label.control-label.col-sm-2(for='itemBrand') Brand(*) :
+          .col-sm-8
+            input#itemBrand.form-control(type='text', value=item.itemBrand, name='itemBrand',required=true)
+        .form-group
+          label.control-label.col-sm-2(for='category') Category(*) :
+          .col-sm-8
+            input#category.form-control(type='text', value=item.category, name='category,required=true')
+        .form-group
+          label.control-label.col-sm-2(for='manufacturer') Manufacturer :
+          .col-sm-8
+            input#manufacturer.form-control(type='text', value=item.manufacturer, name='manufacturer')
+        .form-group
+          label.control-label.col-sm-2(for='itemDescription') Description :
+          .col-sm-8
+            input#itemDescription.form-control(type='textarea', value=item.itemDescription, name='itemDescription')
+        .form-group
+          label.control-label.col-sm-2(for='deliveredBy') Seller(*) :
+          .col-sm-8
+            input#deliveredBy.form-control(type='text', value=item.deliveredBy, name='deliveredBy',required=true)
+        .form-group
+          label.control-label.col-sm-2(for='imageUrl') Image Url(*) :
+          .col-sm-8
+            input#imageUrl.form-control(type='text', value=item.imageUrl, name='imageUrl',required=true)
+        .form-group
+          label.control-label.col-sm-2(for='price') Price(*) :
+          .col-sm-8
+            input#price.form-control(type='number', value=item.price, name='price',required=true)
+        .form-group
+          label.control-label.col-sm-2(for='discount') Discount(*) :
+          .col-sm-8
+            input#discount.form-control(type='text', value=item.discount, name='discount',required=true)
+        .form-group
+          label.control-label.col-sm-2(for='size') Size :
+          .col-sm-8
+            input#size.form-control(type='text', value=item.size, name='size')
+        .form-group
+          label.control-label.col-sm-2(for='color') Color :
+          .col-sm-8
+            input#color.form-control(type='text', value=item.color, name='color')
+        .form-group
+          label.control-label.col-sm-2(for='stockCount') Stock Count(*) :
+          .col-sm-8
+            input#price.form-control(type='number', placeholder='0', name='stockCount',required=true)
+        .form-group.submit.create-item-button
+          .col-sm-offset-5.col-sm-4
+            button.btn.btn-primary.btn-create-item.btn-lg(type='submit') Confirm changes !
+
+
+

@@ -1,0 +1,20 @@
+{
+  "name": "MediBuddy",
+  "version": "0.0.1",
+  "private": false,
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "latest",
+    "cookie-parser": "latest",
+    "express": "latest",
+    "express-session": "latest",
+    "jade": "latest",
+    "mongoose": "latest",
+    "morgan": "latest",
+    "pug": "latest",
+    "gen-id": "latest",
+    "nodemailer": "latest",
+    "nodemailer-smtp-transport": "latest",
+    "otp-generator": "latest"
+  }
+}
